@@ -57,10 +57,10 @@ public class EmployeeController {
 
     @DeleteMapping("/employees/{id}")
     public ResponseEntity<?> deleteNote(@PathVariable(value = "id") Long employeeId) {
-    	Employee note = employeeRepository.findById(employeeId)
+    	Employee employee = employeeRepository.findById(employeeId)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee", "id", employeeId));
 
-    	employeeRepository.delete(note);
+    	employeeRepository.delete(employee);
 
         return ResponseEntity.ok().build();
     }
