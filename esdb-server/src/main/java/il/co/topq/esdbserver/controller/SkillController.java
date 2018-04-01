@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import il.co.topq.esdbserver.exception.ResourceNotFoundException;
@@ -27,24 +28,37 @@ public class SkillController {
     SkillRepository skillsRepository;
 
     @GetMapping("/skills")
-    public List<Skill> getAllEnployees() {
+    public List<Skill> getAllSkills() {
         return skillsRepository.findAll();
     }
 
-    @PostMapping("/skills")
-    public Skill createEmployee(@Valid @RequestBody Skill skill) {
+    @PostMapping("/skill")
+    public Skill createSkill(@Valid @RequestBody Skill skill) {
         return skillsRepository.save(skill);
     }
     
-    @GetMapping("/skills/{id}")
-    public Skill getNoteById(@PathVariable(value = "id") Long skillId) {
+    @GetMapping("/skill/{id}")
+    public Skill getSkillById(@PathVariable(value = "id") Long skillId) {
         return skillsRepository
         		.findById(skillId)
                 .orElseThrow(() -> new ResourceNotFoundException("Skill", "id", skillId));
     }
+    
+    @GetMapping("/skill")
+    public List<Skill> getSkillByParameter(@RequestParam(value="paramName") String paramName, @RequestParam(value="paramValue") String paramValue) {
+        
+    	switch(paramName) {
+    	case "skillName":
+        	return skillsRepository.findBySkillName(paramValue);
+    	case "category":
+        	return skillsRepository.findByCategory(paramValue);
+    	}
+    	
+    	throw new ResourceNotFoundException("Skill", paramName, paramValue);
+    }
 
-    @PutMapping("/skills/{id}")
-    public Skill updateNote(@PathVariable(value = "id") Long skillId, @Valid @RequestBody Skill skillDetails) {
+    @PutMapping("/skill/{id}")
+    public Skill updateSkill(@PathVariable(value = "id") Long skillId, @Valid @RequestBody Skill skillDetails) {
 
     	Skill skill = skillsRepository.findById(skillId)
                 .orElseThrow(() -> new ResourceNotFoundException("Skill", "id", skillId));
@@ -55,8 +69,8 @@ public class SkillController {
         return skill;
     }
 
-    @DeleteMapping("/skills/{id}")
-    public ResponseEntity<?> deleteNote(@PathVariable(value = "id") Long employeeId) {
+    @DeleteMapping("/skill/{id}")
+    public ResponseEntity<?> deleteSkill(@PathVariable(value = "id") Long employeeId) {
     	Skill skill = skillsRepository.findById(employeeId)
                 .orElseThrow(() -> new ResourceNotFoundException("Skill", "id", employeeId));
 

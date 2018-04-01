@@ -27,7 +27,7 @@ public class EmployeeController {
     EmployeeRepository employeeRepository;
 
     @GetMapping("/employees")
-    public List<Employee> getAllEnployees() {
+    public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
     }
 
@@ -37,14 +37,14 @@ public class EmployeeController {
     }
     
     @GetMapping("/employees/{id}")
-    public Employee getNoteById(@PathVariable(value = "id") Long employeeId) {
+    public Employee getEmployeeById(@PathVariable(value = "id") Long employeeId) {
         return employeeRepository
         		.findById(employeeId)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee", "id", employeeId));
     }
 
     @PutMapping("/employees/{id}")
-    public Employee updateNote(@PathVariable(value = "id") Long employeeId, @Valid @RequestBody Employee employeeDetails) {
+    public Employee updateEmployee(@PathVariable(value = "id") Long employeeId, @Valid @RequestBody Employee employeeDetails) {
 
     	Employee employee = employeeRepository.findById(employeeId)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee", "id", employeeId));
@@ -56,7 +56,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/employees/{id}")
-    public ResponseEntity<?> deleteNote(@PathVariable(value = "id") Long employeeId) {
+    public ResponseEntity<?> deleteEmployee(@PathVariable(value = "id") Long employeeId) {
     	Employee employee = employeeRepository.findById(employeeId)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee", "id", employeeId));
 

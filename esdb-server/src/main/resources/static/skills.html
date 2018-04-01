@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>Top-Q ESDB - Skills</title>
+<link rel="stylesheet" href="css/page_style.css" />
+<link rel="stylesheet" href="css/form_style.css" />
+<script type="text/javascript" src="js/lib/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/ui_controller.js"></script>
+<script type="text/javascript" src="js/form_processor.js"></script>
+</head>
+
+<body>
+	<h1>Add new skill</h1>
+	
+	<form id="add_skill_form" action="/api/skills" method="post">
+		<p>
+			<label for="skillName">Skill Name: </label>
+			<input type="text" name="skillName" id="skillName" placeholder="Skill name" />
+		</p>
+		<p>
+			<label for="category">Skill category: </label>
+			<select name="category" id="category">
+				<option value="" disabled selected hidden>-- select category --</option>
+				<option value="Programming Languages">Programming Languages</option>
+				<option value="Web">Web</option>
+				<option value="Desktop Automation">Desktop Automation</option>
+				<option value="Automation Frameworks">Automation Frameworks</option>
+				<option value="Mobile">Mobile</option>
+				<option value="Networking">Networking</option>
+				<option value="Build Tools">Build Tools</option>
+				<option value="Source Control">Source Control</option>
+				<option value="Virtualization">Virtualization</option>
+				<option value="Databases">Databases</option>
+				<option value="Client Side">Client Side</option>
+				<option value="Server Side">Server Side</option>
+				<option value="Advanced Java">Advanced Java</option>
+				<option value="Advanced .NET">Advanced .NET</option>
+				<option value="CI">CI</option>
+				<option value="Misc">Misc</option>
+				<option value="Issue Tracking">Issue Tracking</option>
+				<option value="Test Reports">Test Reports</option>
+			</select>
+		</p>
+		<p>
+			<label for="subcategory">Skill sub-category: </label>
+			<input type="text" name="subcategory" id="subcategory" placeholder="Skill subcategory" />
+		</p>
+		<p>
+			<label for="topqRelevance">Relevance for Top-Q: </label>
+			<select name="topqRelevance" id="topqRelevance">
+				<option value="" disabled selected hidden>-- select relevance level --</option>
+				<option value="5">5 (very high relevance)</option>
+				<option value="4">4 (high relevance)</option>
+				<option value="3">3 (medium relevance)</option>
+				<option value="2">2 (low relevance)</option>
+				<option value="1">1 (very low relevance)</option>
+			</select>
+		</p>
+		<p>
+			<label for="skillDescription">Skill description:<br /></label>
+			<textarea name="skillDescription" id="skillDescription" cols="40" rows="5" placeholder="Skill description"></textarea>
+		</p>
+		
+		<input type="submit" value="Add new skill to DB" />
+	</form>
+
+	<div id="result_div"></div>
+
+</body>
+</html>
