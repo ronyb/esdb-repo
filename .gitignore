@@ -1,5 +1,6 @@
 .metadata
 .recommenders
+*.code-workspace
 
 # Compiled class file
 *.class
