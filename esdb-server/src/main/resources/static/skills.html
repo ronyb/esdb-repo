@@ -1,22 +1,41 @@
 <html>
 <head>
 <title>Top-Q ESDB - Skills</title>
-<link rel="stylesheet" href="css/page_style.css" />
-<link rel="stylesheet" href="css/form_style.css" />
+<link rel="stylesheet" href="css/skills.css" />
 <script type="text/javascript" src="js/lib/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="js/ui_controller.js"></script>
-<script type="text/javascript" src="js/form_processor.js"></script>
+<script type="text/javascript" src="js/skills.js"></script>
 </head>
 
 <body>
-	<h1>Add new skill</h1>
+	<h1>Skills</h1>
+
+	<p><button id="add_skill_btn">Add Skill</button></p>
+
+	<table id="skills_table">
+		<thead>
+			<tr>
+				<th>Logo</th>
+				<th>Skill Name</th>
+				<th>Category</th>
+				<th>Sub-category</th>
+				<th>Relevance for Top-Q</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
 	
-	<form id="add_skill_form" action="/api/skills" method="post">
-		<p>
-			<label for="skillName">Skill Name: </label>
-			<input type="text" name="skillName" id="skillName" placeholder="Skill name" />
-		</p>
-		<p>
+	<div id="add_skill_modal" >
+		<div id="add_skill">
+			<span id="add_skill_title">Add Skill</span> <span class="close">&times;</span>
+			<br><br>
+			<form id="add_skill_form">
+			
+			<p>
+			<label for="skillName">Skill Name: </label> <input type="text" name="skillName" id="skillName" />
+			</p>
+			
+			<p>
 			<label for="category">Skill category: </label>
 			<select name="category" id="category">
 				<option value="" disabled selected hidden>-- select category --</option>
@@ -39,12 +58,14 @@
 				<option value="Issue Tracking">Issue Tracking</option>
 				<option value="Test Reports">Test Reports</option>
 			</select>
-		</p>
-		<p>
+			</p>
+			
+			<p>
 			<label for="subcategory">Skill sub-category: </label>
-			<input type="text" name="subcategory" id="subcategory" placeholder="Skill subcategory" />
-		</p>
-		<p>
+			<input type="text" name="subcategory" id="subcategory" />
+			</p>
+			
+			<p>
 			<label for="topqRelevance">Relevance for Top-Q: </label>
 			<select name="topqRelevance" id="topqRelevance">
 				<option value="" disabled selected hidden>-- select relevance level --</option>
@@ -54,14 +75,18 @@
 				<option value="2">2 (low relevance)</option>
 				<option value="1">1 (very low relevance)</option>
 			</select>
-		</p>
-		<p>
-			<label for="skillDescription">Skill description:<br /></label>
-			<textarea name="skillDescription" id="skillDescription" cols="40" rows="5" placeholder="Skill description"></textarea>
-		</p>
+			</p>
+			
+			<p>
+			<p><label for="skillDescription">Skill description:</label></p>
+			<textarea name="skillDescription" id="skillDescription"></textarea>
+			</p>
+			
+		<input type="submit" value="Add new skill" />
 		
-		<input type="submit" value="Add new skill to DB" />
 	</form>
+		</div>
+	</div>
 
 	<div id="result_div"></div>
 

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import il.co.topq.esdbserver.exception.ResourceNotFoundException;
 import il.co.topq.esdbserver.model.Skill;
 import il.co.topq.esdbserver.repository.SkillRepository;
+import il.co.topq.esdbserver.utils.Validation;
 
 @RestController
 @RequestMapping("/api")
@@ -34,7 +35,12 @@ public class SkillController {
 
     @PostMapping("/skill")
     public Skill createSkill(@Valid @RequestBody Skill skill) {
-        return skillsRepository.save(skill);
+        if (Validation.strNotEmpty(skill.getSkillName()) && Validation.strNotEmpty(skill.getCategory())) {
+        	return skillsRepository.save(skill);
+        }
+        else {
+        	throw new RuntimeException("Skill name and/or category were not provided");
+        }
     }
     
     @GetMapping("/skill/{id}")

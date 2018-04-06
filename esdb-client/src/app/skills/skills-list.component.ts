@@ -1,15 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ISkill } from './skill';
 
 @Component({
     selector: 'app-skills',
     templateUrl: './skills-list.component.html',
     styleUrls: ['./skills-list.component.css']
 })
-export class SkillsListComponent {
+export class SkillsListComponent implements OnInit {
+
     pageTitle: string = 'Skills List';
     imageWidth: number = 50;
     imageMargin: number = 2;
-    skills: any[] = [
+    
+    skills: ISkill[] = [
         {
             "id": 1,
             "skillName": "Java",
@@ -48,49 +51,11 @@ export class SkillsListComponent {
         }
     ];
     
-    /*
-    imageWidth: number = 50;
-    imageMargin: number = 2;
-    showImage: boolean = false;
-    errorMessage: string;
-
-    _listFilter: string;
-    get listFilter(): string {
-        return this._listFilter;
-    }
-    set listFilter(value: string) {
-        this._listFilter = value;
-        this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
-    }
-
-    filteredProducts: IProduct[];
-    products: IProduct[] = [];
-
-    constructor(private _productService: ProductService) {
-
-    }
-
-    onRatingClicked(message: string): void {
-        this.pageTitle = 'Product List: ' + message;
-    }
-
-    performFilter(filterBy: string): IProduct[] {
-        filterBy = filterBy.toLocaleLowerCase();
-        return this.products.filter((product: IProduct) =>
-              product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
-    }
-
-    toggleImage(): void {
-        this.showImage = !this.showImage;
+    constructor() {
+        console.log("skills-list.component.constructor");
     }
 
     ngOnInit(): void {
-        this._productService.getProducts()
-                .subscribe(products => {
-                    this.products = products;
-                    this.filteredProducts = this.products;
-                },
-                    error => this.errorMessage = <any>error);
+        console.log("skills-list.component.ngOnInit");
     }
-    */
 }
