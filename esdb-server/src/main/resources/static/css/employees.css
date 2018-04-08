@@ -1,0 +1,107 @@
+body {
+	font-family: Sans-serif;
+	font-size: 11pt;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    align: center;
+}
+
+.modal {
+	display: none;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	position: fixed;
+	left: 0;
+	top: 0;
+	overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#update_employee {
+	position: relative;
+	border: 1px solid #000;
+	padding: 20px;
+	margin: 10% auto;
+	background-color: #F4F4F4;
+	width: 360px;
+	height: 360px;
+	border-radius: 10px;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.25s;
+    animation-name: animatetop;
+    animation-duration: 0.25s;
+}
+
+
+#add_employee {
+	position: relative;
+	border: 1px solid #000;
+	padding: 20px;
+	margin: 10% auto;
+	background-color: #F4F4F4;
+	width: 360px;
+	height: 360px;
+	border-radius: 10px;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.25s;
+    animation-name: animatetop;
+    animation-duration: 0.25s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+#add_employee input {
+	width: 200px;
+}
+
+#add_employee input[type='submit'] {
+	width: 355px;
+}
+
+#add_employee select {
+	width: 200px;
+}
+
+#add_employee textarea {
+	width: 355px;
+	height: 120px;
+}
+
+#add_employee label {
+	width: 150px;
+	float: left;
+}
+
+#add_employee span {
+	font-weight: bold;
+	font-size: 12pt;
+}
+
+#add_employee .close {
+    color: #CC0000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+	opacity:.8;
+}
+
+#add_employee .close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
