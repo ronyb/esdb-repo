@@ -1,109 +1,121 @@
 <html>
 <head>
-<title>Top-Q ESDB - Employees</title>
-<link rel="stylesheet" href="css/employees.css" />
-<script type="text/javascript" src="js/lib/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="js/employees.js"></script>
+    <title>Top-Q ESDB - Employees</title>
+    <link rel="stylesheet" href="css/employees.css"/>
+    <script type="text/javascript" src="js/lib/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/employees.js"></script>
 </head>
 
 <body>
-	<h1>Employees</h1>
+<h1>Employees</h1>
 
-	<p><button id="add_employee_btn">Add Employee</button></p>
+<p>
+    <button id="add_employee_btn">Add Employee</button>
+</p>
 
-	<table id="employees_table">
-		<thead>
-			<tr>
-				<th>Edit</th>
-				<th>Matrix ID</th>
-				<th>First Name (Hebrew)</th>
-				<th>First Name (English)</th>
-				<th>Last Name (Hebrew)</th>
-				<th>Last Name (English)</th>
-				<th>Phone</th>
-				<th>Email</th>
-			</tr>
-		</thead>
-		<tbody>
-		</tbody>
-	</table>
-	
-	<div id="add_employee_modal" class="modal">
-		<div id="add_employee">
-			<span id="add_employee_title">Add Employee</span> <span class="close">&times;</span>
-			<br><br>
-			<form id="add_employee_form">
-			
-			<p>
-			<label for="skillName">Skill Name: </label> <input type="text" name="skillName" id="skillName" />
-			</p>
-			
-			<p>
-			<label for="category">Skill category: </label>
-			<select name="category" id="category">
-				<option value="" disabled selected hidden>-- select category --</option>
-				<option value="Programming Languages">Programming Languages</option>
-				<option value="Web">Web</option>
-				<option value="Desktop Automation">Desktop Automation</option>
-				<option value="Automation Frameworks">Automation Frameworks</option>
-				<option value="Mobile">Mobile</option>
-				<option value="Networking">Networking</option>
-				<option value="Build Tools">Build Tools</option>
-				<option value="Source Control">Source Control</option>
-				<option value="Virtualization">Virtualization</option>
-				<option value="Databases">Databases</option>
-				<option value="Client Side">Client Side</option>
-				<option value="Server Side">Server Side</option>
-				<option value="Advanced Java">Advanced Java</option>
-				<option value="Advanced .NET">Advanced .NET</option>
-				<option value="CI">CI</option>
-				<option value="Misc">Misc</option>
-				<option value="Issue Tracking">Issue Tracking</option>
-				<option value="Test Reports">Test Reports</option>
-			</select>
-			</p>
-			
-			<p>
-			<label for="subcategory">Skill sub-category: </label>
-			<input type="text" name="subcategory" id="subcategory" />
-			</p>
-			
-			<p>
-			<label for="topqRelevance">Relevance for Top-Q: </label>
-			<select name="topqRelevance" id="topqRelevance">
-				<option value="" disabled selected hidden>-- select relevance level --</option>
-				<option value="5">5 (very high relevance)</option>
-				<option value="4">4 (high relevance)</option>
-				<option value="3">3 (medium relevance)</option>
-				<option value="2">2 (low relevance)</option>
-				<option value="1">1 (very low relevance)</option>
-			</select>
-			</p>
-			
-			<p>
-			<p><label for="skillDescription">Skill description:</label></p>
-			<textarea name="skillDescription" id="skillDescription"></textarea>
-			</p>
-			
-		<input type="submit" value="Add new skill" />
-		
-	</form>
-		</div>
-	</div>
+<table id="employees_table">
+    <thead>
+    <tr>
+        <th>Edit</th>
+        <th>Matrix ID</th>
+        <th>First Name (Hebrew)</th>
+        <th>First Name (English)</th>
+        <th>Last Name (Hebrew)</th>
+        <th>Last Name (English)</th>
+        <th>Phone</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
 
-	<div id="update_employee_modal" class="modal" >
-		<div id="update_employee">
-			<span id="update_employee_title">Update Employee</span> <span class="close">&times;</span>
-			<br><br>
-			<form id="update_employee_form">
-			
-				<input type="submit" value="Update employee" />
-			</form>
-		</div>
-	</div>
+<div id="add_employee_modal" class="modal">
+    <div id="add_employee">
+        <span id="add_employee_title">Add Employee</span> <span class="close">&times;</span>
+        <br><br>
+        <form id="add_employee_form">
+
+            <p>
+                <label for="MatrixId">Matrix Id: </label> <input type="text" name="matrixId" id="MatrixId"/>
+            </p>
+
+            <p>
+                <label for="FirstNameHe">First Name (Hebrew):</label> <input type="text" name="firstNameHe"
+                                                                     id="FirstNameHe"/>
+            </p>
+
+            <p>
+                <label for="FirstNameEng">First Name(English): </label> <input type="text" name="firstNameEn"
+                                                                      id="FirstNameEng"/>
+            </p>
+
+            <p>
+                <label for="LastNameHe">Last Name (Hebrew): </label> <input type="text" name="lastNameHe"
+                                                                    id="LastNameHe"/>
+            </p>
+
+            <p>
+                <label for="LastNameEng">Last NameEng (English): </label> <input type="text" name="lastNameEn"
+                                                                     id="LastNameEng"/>
+            </p>
+
+            <p>
+                <label for="Phone">Phone: </label> <input type="text" name="phone" id="Phone"/>
+            </p>
+            <p>
+                <label for="Email">Email: </label> <input type="text" name="email1" id="Email"/>
+            </p>
+
+            <input type="submit" value="Add New Employee"/>
+
+        </form>
+    </div>
+</div>
+
+<div id="update_employee_modal" class="modal">
+    <div id="update_employee">
+        <span id="update_employee_title">Update Employee</span> <span class="close">&times;</span>
+        <br><br>
+        <form id="update_employee_form">
+            <input type="hidden" value="" name="id_in_db_table" id="id_in_db_table"/>
+            <p>
+                <label for="MatrixId">Matrix Id: </label> <input type="text" name="matrixId" id="MatrixIdUpdate"/>
+            </p>
+
+            <p>
+                <label for="FirstNameHe">First Name (Hebrew):</label> <input type="text" name="firstNameHe"
+                                                                             id="FirstNameHeUpdate"/>
+            </p>
+
+            <p>
+                <label for="FirstNameEng">First Name(English): </label> <input type="text" name="firstNameEn"
+                                                                               id="FirstNameEngUpdate"/>
+            </p>
+
+            <p>
+                <label for="LastNameHe">Last Name (Hebrew): </label> <input type="text" name="lastNameHe"
+                                                                            id="LastNameHeUpdate"/>
+            </p>
+
+            <p>
+                <label for="LastNameEng">Last NameEng (English): </label> <input type="text" name="lastNameEn"
+                                                                                 id="LastNameEngUpdate"/>
+            </p>
+
+            <p>
+                <label for="Phone">Phone: </label> <input type="text" name="phone" id="PhoneUpdate"/>
+            </p>
+            <p>
+                <label for="Email">Email: </label> <input type="text" name="email1" id="EmailUpdate"/>
+            </p>
+            <input type="submit" value="Update employee"/>
+        </form>
+    </div>
+</div>
 
 
-	<div id="result_div"></div>
+<div id="result_div"></div>
 
 </body>
 </html>
